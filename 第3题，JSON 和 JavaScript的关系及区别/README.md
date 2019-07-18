@@ -16,3 +16,16 @@
 |字符串"bomber"|字符串'bomber'|
 |搞不定，因为JSON没有变量，不能引用|声明一个对象引用自己var a={}<br>a.self=a|
 |没有原型链|有原型链|
+
+### 其他
+* 字面量可以理解为对象的简单写法，比如用new去创建一个对象
+```
+var obj=new Object()
+```
+* 但我们还可以写成创建对象的特殊简写
+```
+obj={}
+```
+* {}就是字面量，而new Object()不是字面量
+* 字面量学习[链接](https://www.jianshu.com/p/0f2816805da6)
+* MDN 关于字面量的说明[链接](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
