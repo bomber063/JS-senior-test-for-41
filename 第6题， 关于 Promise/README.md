@@ -1,5 +1,5 @@
 ### 用过 Promise 吗？举例说明。
-* 一般AJAX都会返回一个Promise对象。在用jQuery发AJAX请求的时候就会用到Promise.成功就会把then函数里面的第一个参数作为回调函数，失败就会把then函数里面的第二个参数作为回调函数
+* 用过Promise，比如 jQuery 或者 axios 的 AJAX 功能，都返回的是 Promise 对象。
 * 举例，比如
 ```
 $.ajax({
@@ -10,14 +10,16 @@ $.ajax({
   .then(success2,error2)//success2代表第二个then前面的代码没有问题的时候执行的函数，error2代表第二个then前面的代码有问题的时候执行的函数
 ```
 ### 如果要你创建一个返回 Promise 对象的函数，你会怎么写？举例说明。
-* 因为then方法就会返回一个Promise对象，所以只需要一个函数的return里面有then方法，并且return里面then方法返回的函数里面还有then方法。
+* Promise有一个函数作为参数，这个里面的函数有两个函数作为参数。第一个是成功调用的函数resolve，第二个是是白泽调用的函数reject
 ```
- window.Promise = function(fn){//接受一个fn作为参数
-    ...
-   return {
-     then: function(){}//这个then里面的函数会继续返回有then方法的对象
-   }
- }
+function asyncMethod(){
+    return new Promise(function (resolve, reject){
+        setTimeout(function(){
+            成功则调用 resolve
+            失败则调用 reject
+        },2000)
+    })
+}
 ```
 * 详细的Javascript部分代码举例为
 ```
@@ -67,3 +69,6 @@ myButton.addEventListener('click', (e)=>{
 
 })
 ```
+
+### 其他
+* [axios的阮一峰说明链接](http://www.ruanyifeng.com/blog/2018/08/weekly-issue-20.html)
