@@ -29,7 +29,7 @@ window.jQuery = function(nodeOrSelector){
 }
 window.$ = window.jQuery
 
-window.jQuery.ajax = function({url, method, body, headers}){//这里的successFn和failFn已经删除，由下面的resolve和reject代替
+window.jQuery.ajax = function({url, method, body, headers}){
   return new Promise(function(resolve, reject){//如果成功就调用resolve，如果失败就调用reject
     let request = new XMLHttpRequest()
     request.open(method, url) // 配置request
